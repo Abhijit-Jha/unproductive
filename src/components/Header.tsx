@@ -1,18 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Download, Copy, Check } from "lucide-react";
+import { Download } from "lucide-react";
 
 export function Header() {
-  const [copied, setCopied] = useState(false);
-  const pumpFunCA = "GbarZW1faMzJX1BzzGTQY25PTDPDF2ggAeNg7WpYpump";
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(pumpFunCA);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-24 py-4 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
       <div className="flex items-center gap-3">
@@ -27,7 +17,7 @@ export function Header() {
         </span>
       </div>
       <div className="flex items-center gap-4 sm:gap-6">
-        <div className="hidden lg:flex items-center gap-4 sm:gap-6 text-sm font-medium text-zinc-400">
+        <div className="flex items-center gap-4 sm:gap-6 text-sm font-medium text-zinc-400">
           <a
             href="https://x.com/abhijitwt"
             target="_blank"
@@ -51,35 +41,6 @@ export function Header() {
             <span className="hidden sm:block">Abhijit-Jha</span>
           </a>
         </div>
-
-        {/* CA Button */}
-        <button
-          onClick={handleCopy}
-          type="button"
-          aria-label="Copy contract address"
-          className="group flex flex-wrap items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-full cursor-pointer hover:bg-white/10 transition-all active:scale-95 text-left focus:outline-none focus:ring-2 focus:ring-white/20"
-        >
-          <span className="text-xs text-zinc-400 font-mono tracking-wide hidden sm:inline-block">
-            CA:{" "}
-            <span className="text-zinc-300">
-              {pumpFunCA.slice(0, 6)}...{pumpFunCA.slice(-4)}
-            </span>
-          </span>
-          <span className="text-xs text-zinc-400 font-mono tracking-wide sm:hidden">
-            CA
-          </span>
-          {copied ? (
-            <Check
-              className="w-3.5 h-3.5 text-green-500 flex-shrink-0"
-              aria-hidden="true"
-            />
-          ) : (
-            <Copy
-              className="w-3.5 h-3.5 text-zinc-500 group-hover:text-zinc-300 transition-colors flex-shrink-0"
-              aria-hidden="true"
-            />
-          )}
-        </button>
 
         <a
           href="/unproductive-mode.zip"

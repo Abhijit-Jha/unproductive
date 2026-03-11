@@ -1,19 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Copy, Check } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 
 export function Hero() {
-  const [copied, setCopied] = useState(false);
-  const pumpFunCA = "GbarZW1faMzJX1BzzGTQY25PTDPDF2ggAeNg7WpYpump";
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(pumpFunCA);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <section className="relative min-h-[100dvh] w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-24 mx-auto max-w-[1400px]">
       {/* Left Content */}
@@ -31,39 +21,11 @@ export function Hero() {
             <span className="text-[#52525b] block">chilling.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-zinc-400 max-w-[42ch] leading-relaxed mb-6 font-medium">
+          <p className="text-lg md:text-xl text-zinc-400 max-w-[42ch] leading-relaxed mb-12 font-medium">
             A brutally sarcastic Chrome extension that forcefully blocks you
             from visiting productive websites, studying, or watching tutorials
             when you're supposed to be relaxing.
           </p>
-
-          <button
-            onClick={handleCopy}
-            type="button"
-            aria-label="Copy contract address"
-            className="group flex items-center justify-between sm:justify-start gap-3 mb-12 px-4 py-2.5 bg-white/5 border border-white/10 rounded-full w-full sm:w-fit max-w-full cursor-pointer hover:bg-white/10 transition-all active:scale-95 text-left focus:outline-none focus:ring-2 focus:ring-white/20"
-          >
-            <span className="text-xs md:text-sm text-zinc-400 font-mono tracking-wide truncate">
-              CA:{" "}
-              <span className="text-zinc-300 hidden sm:inline">
-                {pumpFunCA}
-              </span>
-              <span className="text-zinc-300 sm:hidden">
-                {pumpFunCA.slice(0, 8)}...{pumpFunCA.slice(-6)}
-              </span>
-            </span>
-            {copied ? (
-              <Check
-                className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-500 flex-shrink-0"
-                aria-hidden="true"
-              />
-            ) : (
-              <Copy
-                className="w-3.5 h-3.5 md:w-4 md:h-4 text-zinc-500 group-hover:text-zinc-300 transition-colors flex-shrink-0"
-                aria-hidden="true"
-              />
-            )}
-          </button>
 
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <motion.a
