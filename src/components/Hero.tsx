@@ -41,16 +41,10 @@ export function Hero() {
             onClick={handleCopy}
             type="button"
             aria-label="Copy contract address"
-            className="group flex items-center justify-between sm:justify-start gap-3 mb-12 px-4 py-2.5 bg-white/5 border border-white/10 rounded-full w-full sm:w-fit max-w-full cursor-pointer hover:bg-white/10 transition-all active:scale-95 text-left focus:outline-none focus:ring-2 focus:ring-white/20"
+            className="group flex flex-wrap items-center gap-2 mb-12 px-4 py-2 bg-white/5 border border-white/10 rounded-full w-fit cursor-pointer hover:bg-white/10 transition-all active:scale-95 text-left focus:outline-none focus:ring-2 focus:ring-white/20"
           >
-            <span className="text-xs md:text-sm text-zinc-400 font-mono tracking-wide truncate">
-              CA:{" "}
-              <span className="text-zinc-300 hidden sm:inline">
-                {pumpFunCA}
-              </span>
-              <span className="text-zinc-300 sm:hidden">
-                {pumpFunCA.slice(0, 8)}...{pumpFunCA.slice(-6)}
-              </span>
+            <span className="text-xs md:text-sm text-zinc-400 font-mono tracking-wide break-all">
+              CA: <span className="text-zinc-300">{pumpFunCA}</span>
             </span>
             {copied ? (
               <Check
